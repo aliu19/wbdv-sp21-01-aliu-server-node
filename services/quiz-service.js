@@ -1,14 +1,9 @@
-const quizzesModel = require("../models/quizzes/quizzes-model")
+const quizzesDao = require('../daos/quizzes-dao')
 
-const findAllQuizzes = () => { // retrieve all quizzes
-  return quizzesModel.find() // returns a promise
-}
+const findAllQuizzes = () => quizzesDao.findAllQuizzes()
+const findQuizById = (qid) => quizzesDao.findQuizById(qid)
 
-const findQuizById = (quizId) => { // retrieve specific quiz by its ID
-  return quizzesModel.findById(quizId)
-}
-
-module.exports = { // export functions for controller
+module.exports = {
   findAllQuizzes,
   findQuizById
 }

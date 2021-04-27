@@ -1,8 +1,12 @@
-let quizzes = require('./quizzes.json') // quizzes declared in separate file
+const quizzesModel = require("../models/quizzes/quizzes-model")
 
-const findAllQuizzes = () => quizzes // retrieve all quizzes
-const findQuizById = (quizId) => // retrieve specific quiz by its ID
-    quizzes.find(quiz => quiz._id === quizId)
+const findAllQuizzes = () => { // retrieve all quizzes
+  return quizzesModel.find() // returns a promise
+}
+
+const findQuizById = (quizId) => { // retrieve specific quiz by its ID
+  return quizzesModel.findById(quizId)
+}
 
 module.exports = { // export functions for controller
   findAllQuizzes,
